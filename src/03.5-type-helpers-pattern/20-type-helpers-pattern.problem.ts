@@ -1,6 +1,6 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type ReturnWhatIPassIn = unknown;
+type ReturnWhatIPassIn<Type> = Type;
 
 type tests = [
   Expect<Equal<ReturnWhatIPassIn<1>, 1>>,
@@ -9,3 +9,7 @@ type tests = [
   Expect<Equal<ReturnWhatIPassIn<false>, false>>,
   Expect<Equal<ReturnWhatIPassIn<null>, null>>,
 ];
+
+
+// wow, code completion works again
+const myValue: ReturnWhatIPassIn<42> = 42

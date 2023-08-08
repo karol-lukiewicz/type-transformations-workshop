@@ -12,7 +12,14 @@ type Route =
   | { route: "/admin"; search: {} }
   | { route: "/admin/users"; search: {} };
 
-type RoutesObject = unknown;
+
+type RoutesObject = {
+  [SingleRoute in Route as SingleRoute["route"]]: SingleRoute["search"];
+}
+
+// type RoutesObject = {
+//   [Key in keyof Route]: Route[Key]["search"]
+// };
 
 type tests = [
   Expect<

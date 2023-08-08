@@ -4,7 +4,7 @@ type BreadType = "rye" | "brown" | "white";
 
 type Filling = "cheese" | "ham" | "salami";
 
-type Sandwich = unknown;
+type Sandwich = `${BreadType} sandwich with ${Filling}`;
 
 type tests = [
   Expect<
@@ -22,3 +22,6 @@ type tests = [
     >
   >
 ];
+
+// autocomple works again
+const mySandwitch: Sandwich = "rye sandwich with ham"

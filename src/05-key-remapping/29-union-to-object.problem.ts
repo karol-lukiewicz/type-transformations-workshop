@@ -1,8 +1,9 @@
+import { Router } from "express";
 import { Equal, Expect } from "../helpers/type-utils";
 
 type Route = "/" | "/about" | "/admin" | "/admin/users";
 
-type RoutesObject = unknown;
+type RoutesObject = { [SingleRoute in Route]: SingleRoute; };
 
 type tests = [
   Expect<

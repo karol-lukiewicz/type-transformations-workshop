@@ -14,7 +14,9 @@ type Fruit =
       color: "orange";
     };
 
-type TransformedFruit = unknown;
+type TransformedFruit = {
+  [SingleFruit in Fruit as SingleFruit["name"]]: `${SingleFruit["name"]}:${SingleFruit["color"]}`
+}[Fruit["name"]];
 
 type tests = [
   Expect<
